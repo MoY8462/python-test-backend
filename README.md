@@ -1,1 +1,42 @@
 # python-test-backend
+
+## Dependencias instaladas
+
+1. asgiref                       3.5.2
+2. certifi                       2022.6.15
+3. cffi                          1.15.1
+4. charset-normalizer            2.1.0
+5. coreapi                       2.3.3
+6. coreschema                    0.0.4
+7. cryptography                  37.0.4
+8. defusedxml                    0.7.1
+9. Django                        3.2
+10. django-cors-headers           3.13.0
+11. django-mssql-backend          2.8.1
+12. django-templated-mail         1.1.1
+13. djangorestframework           3.13.1
+14. djangorestframework-simplejwt 4.8.0
+15. djoser                        2.1.0
+16. idna                          3.3
+17. itypes                        1.2.0
+18. Jinja2                        3.1.2
+19. MarkupSafe                    2.1.1
+19. mysqlclient                   2.1.1
+20. oauthlib                      3.2.0
+21. pip                           22.2.1
+22. pycparser                     2.21
+23. PyJWT                         2.4.0
+24. PyMySQL                       1.0.2
+25. pyodbc                        4.0.34
+26. python3-openid                3.2.0
+27. pytz                          2022.1
+27. requests                      2.28.1
+28. requests-oauthlib             1.3.1
+29. setuptools                    63.2.0
+30. six                           1.16.0
+31. social-auth-app-django        4.0.0
+32. social-auth-core              4.3.0
+33. sqlparse                      0.4.2
+34. tzdata                        2022.1
+35. uritemplate                   4.1.1
+36. urllib3                       1.26.11

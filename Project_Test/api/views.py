@@ -2,9 +2,10 @@ from django.http.response import JsonResponse
 from django.utils.decorators import method_decorator
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
-from .models import Restaurant
+from .models import Restaurant, User
 import json
 # Create your views here.
+JWT_TOKEN = '63aa3e92-c3fe-4010-bd5e-bc3e38e91d5e'
 
 class RestauranteView(View):
 
@@ -58,4 +59,36 @@ class RestauranteView(View):
             datos = {'message':'Success'}
         else:
             datos = { 'message': 'Delete Failed'}
-        return JsonResponse(datos) 
+        return JsonResponse(datos)
+
+class UserView(View):
+
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+
+    def post(self, request):
+        #print(request.body)
+        jd = json.loads(request.body)
+        print(jd)
+        if len(jd) == 2:
+            user = list(User.objects.filter(email=jd["email"]).values())
+            
+            use = User.objects.get(email=jd["email"])
+            print(use.password)
+            if len(user) > 0 and use.password == jd["password"]:
+                datos = {'message':'Success','token':JWT_TOKEN}
+            else:
+                datos = { 'message': 'Auth failed'}
+            return JsonResponse(datos)
+        
+        if len(jd) == 3:
+            user = list(User.objects.filter(email=jd["email"]).values())
+            if len(user) > 0:
+                datos = { 'message': 'Register failed'}
+            else:
+                User.objects.create(name = jd['name'], email = jd['email'], password = jd['password'])
+                datos = {'message':'Success'}
+            return JsonResponse(datos)
+            
+            return JsonResponse(datos)
